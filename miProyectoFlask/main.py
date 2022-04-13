@@ -1,18 +1,28 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
 # creamos instancia de Flask
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    return "Texto cambiado sobre la marcha232323232323"
+    return "Estamos en INDEX o pagina principal"
+
+
+@app.route('/redirecciona')
+@app.route('/redirecciona/<string:sitio>')
+def redirecciona(sitio=None):
+    if sitio is not None:
+        return redirect(url_for('index'))
+    else:
+        return redirect(url_for('acercade'))
 
 
 @app.route('/acercade')
 def acercade():
     return "<h1>Acerca de mi</h1>"
-# Con parametros
 
+
+# Con parametros
 
 @app.route('/saludame')
 @app.route('/saludame/<string:nombre>')
