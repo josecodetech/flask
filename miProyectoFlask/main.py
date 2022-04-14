@@ -1,11 +1,15 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, render_template
 # creamos instancia de Flask
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    return "Estamos en INDEX o pagina principal"
+    #encabezado = "Encabezado desde flask"
+    diccionario = {'titulo': 'Pagina principal',
+                   'encabezado': 'Bienvenido a mi pagina web'}
+    return render_template('index.html', datos=diccionario)
+    # return "Estamos en INDEX o pagina principal"
 
 
 @app.route('/redirecciona')
@@ -19,7 +23,8 @@ def redirecciona(sitio=None):
 
 @app.route('/acercade')
 def acercade():
-    return "<h1>Acerca de mi</h1>"
+    # return "<h1>Acerca de mi</h1>"
+    return render_template('acercade.html')
 
 
 # Con parametros
