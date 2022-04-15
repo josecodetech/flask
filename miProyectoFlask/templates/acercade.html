@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acerca de mi</title>
-</head>
-<body>
-    <h1>Encabezado acercade</h1>
-</body>
-</html>
+{% extends './base.html' %}
+{% block titulo %}
+<title>{{datos.titulo}}</title>
+{% endblock %}
+{% block contenido %}
+{{super()}}
+    <h1>Encabezado Acerca De</h1>
+    <h2>{{datos.encabezado}}</h2>
+{% endblock %}

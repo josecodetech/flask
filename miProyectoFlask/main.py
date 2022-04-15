@@ -24,7 +24,9 @@ def redirecciona(sitio=None):
 @app.route('/acercade')
 def acercade():
     # return "<h1>Acerca de mi</h1>"
-    return render_template('acercade.html')
+    diccionario = {'titulo': 'Acerca de',
+                   'encabezado': 'Acerca de mi'}
+    return render_template('acercade.html', datos=diccionario)
 
 
 # Con parametros

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}
+        <title>Plantilla base</title>
+    {% endblock %}
+</head>
+<body>  
+    <header>
+        <h1>Plantilla base</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="contenido"></section>
+        {% block contenido %}
+        
+            <h1>Plantilla base para Flask</h1>
+       
+        {% endblock %}
+         </section>
+</body>
+</html>
