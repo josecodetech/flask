@@ -16,3 +16,9 @@ header h1{
     border-radius: 20px;
     background-color: #4dee58;
 }
+#contenido{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #d4bdbd;
+}

@@ -1,0 +1,21 @@
+{% extends './base.html' %}
+{% block titulo %}
+
+{% endblock %}
+{% block contenido %}
+
+    <h1>Encabezado condicion y bucle</h1>
+    {% if datos.edad >= 18 %}
+    <h2>Eres mayor de edad, tienes {{datos.edad}} años</h2>
+    {% elif datos.edad <= 0 %}
+    <h2>Esa edad no es valida</h2>
+    {% else %}
+    <h2>No puedes entrar</h2>
+    {% endif %}
+    <h2>Lista de nombres</h2>
+    <ul>    
+        {% for nombre in datos.nombres %}
+        <li>{{nombre}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

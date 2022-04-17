@@ -29,7 +29,17 @@ def acercade():
     return render_template('acercade.html', datos=diccionario)
 
 
+@app.route('/condicionybucle')
+def condicionybucle():
+
+    datos = {
+        'edad': 50,
+        'nombres': ['Jose', 'Mar', 'Lucia', 'Eva']
+    }
+    return render_template('condicionybucle.html', datos=datos)
+
 # Con parametros
+
 
 @app.route('/saludame')
 @app.route('/saludame/<string:nombre>')
