@@ -1,11 +1,23 @@
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, redirect, url_for, render_template, request
 # creamos instancia de Flask
 app = Flask(__name__)
+
+
+@app.before_request
+def before_request():
+    print("Antes de la peticion")
+
+
+@app.after_request
+def after_request(response):
+    print("Despues de la peticion")
+    return response
 
 
 @app.route('/')
 def index():
     #encabezado = "Encabezado desde flask"
+    print("Accediendo al index o pagina principal")
     diccionario = {'titulo': 'Pagina principal',
                    'encabezado': 'Bienvenido a mi pagina web'}
     return render_template('index.html', datos=diccionario)

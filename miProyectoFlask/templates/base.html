@@ -12,12 +12,7 @@
     <header>
         <h1>Plantilla base</h1>
         <img src="{{url_for('static',filename='img/logo.png')}}" alt="">
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Acerca de</a></li>
-            </ul>
-        </nav>
+        {% include 'includes/barranavegacion.html' %}
     </header>
     <section id="contenido">
         {% block contenido %}
