@@ -4,8 +4,13 @@
 {% endblock %}
 {% block contenido %}
 {{super()}}
-<h1>Encabezado Acerca De</h1>
-
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+        <h1 style="color:red">{{message}}</h1>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
     <h1>Encabezado index</h1>
     <h2>{{datos.encabezado}}</h2>
 {% endblock %}

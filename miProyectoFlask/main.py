@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, render_template, request
+from flask import Flask, redirect, url_for, render_template, request, flash
 # creamos instancia de Flask
 app = Flask(__name__)
 
@@ -16,6 +16,7 @@ def after_request(response):
 
 @app.route('/')
 def index():
+    flash('Has iniciado en el index del proyecto Flask')
     #encabezado = "Encabezado desde flask"
     print("Accediendo al index o pagina principal")
     diccionario = {'titulo': 'Pagina principal',
@@ -80,4 +81,5 @@ def pagina_no_encontrada(error):
 
 if __name__ == '__main__':
     app.register_error_handler(404, pagina_no_encontrada)
+    app.secret_key = 'clave-flask'
     app.run(debug=True, port=5000)
