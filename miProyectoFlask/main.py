@@ -74,5 +74,10 @@ def suma(num1, num2):
     return f""" La suma es igual a {suma}"""
 
 
+def pagina_no_encontrada(error):
+    return render_template('errores/404.html'), 404
+
+
 if __name__ == '__main__':
+    app.register_error_handler(404, pagina_no_encontrada)
     app.run(debug=True, port=5000)
