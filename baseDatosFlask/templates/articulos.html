@@ -1,0 +1,41 @@
+{% extends './base.html' %}
+{% block titulo %}
+Articulos
+{% endblock %}
+{% block contenido %}
+<section>
+<h3>Articulos</h3>
+<a href="{{ url_for('agregar_articulo') }}" class="btn btn-outline-primary">Agregar Articulo</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Precio</th>  
+            <th>Editar</th>
+            <th>Eliminar</th>        
+        </tr>
+    </thead>
+    <tbody>
+        
+
+        {% for articulo in articulos %}
+        <tr>
+            <td>{{ articulo[0] }}</td>
+            <td>{{ articulo[1] }}</td>
+            <td>{{ articulo[2] }}</td>
+            <td>
+                <a href="{{ url_for('editar_articulo', id=articulo[0]) }}" class="btn btn-outline-primary">Editar</a></td>
+            <td>
+                <form action="{{url_for('eliminar_articulo', id=articulo[0])}}" method="POST">
+                    <input type="hidden" name="id" value="{{articulo[0]}}">
+                    <button class="btn btn-outline-danger">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+</section>
+{% endblock %}

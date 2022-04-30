@@ -1,0 +1,31 @@
+{% extends './base.html' %}
+{% block titulo %}
+Editar Articulo
+{% endblock %}
+{% block contenido %}
+<section>
+<h3>Editar articulo</h3>
+<form action="{{url_for('actualizar_articulo')}}" method="post">
+    <input type="hidden" name="id" value="{{articulo[0]}}">
+<div class="mb-3">  
+  <label for="codigo" class="form-label">Codigo</label>
+  <input type="text" name="id" id="codigo" value="{{articulo[0]}}" class="form-control" placeholder="codigo" readonly>
+</div>
+<div class="mb-3">  
+  <label for="nombre" class="form-label">Nombre</label>
+  <input type="text" name="nombre" id="nombre" value="{{articulo[1]}}" class="form-control" placeholder="nombre" required>
+</div>
+<div class="mb-3">  
+  <label for="precio" class="form-label">Precio</label>
+  <input type="text" name="precio" id="precio" value="{{articulo[2]}}" class="form-control" placeholder="precio" required>
+</div>
+<div class="mb-3">  
+  
+  <button class="btn btn-outline-primary" type="submit">Guardar</button>
+</div>
+</form>
+
+
+
+</section>
+{% endblock %}
