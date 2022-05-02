@@ -13,27 +13,44 @@ def agregar_articulo():
 def guardar_articulo():
     nombre = request.form['nombre']
     precio = request.form['precio']
-    basedatos.insertar_articulo(nombre, precio)
-    return redirect('/articulos')
+    try:
+        basedatos.insertar_articulo(nombre, precio)
+    except Exception as e:
+        print(f"Ha ocurrido el error {e}")
+    finally:
+        return redirect('/articulos')
 
 
 @ app.route('/')
 @ app.route('/articulos')
 def articulos():
-    articulos = basedatos.listar_articulos()
-    return render_template('articulos.html', articulos=articulos)
+    try:
+        articulos = basedatos.listar_articulos()
+    except Exception as e:
+        print(f"Ha ocurrido el error {e}")
+    finally:
+        return render_template('articulos.html', articulos=articulos)
 
 
 @ app.route("/eliminar_articulo", methods=['POST'])
 def eliminar_articulo():
-    basedatos.eliminar_articulo(request.form['id'])
-    return redirect("/articulos")
+    try:
+        basedatos.eliminar_articulo(request.form['id'])
+    except Exception as e:
+        print(f"Ha ocurrido el error {e}")
+    finally:
+
+        return redirect("/articulos")
 
 
 @ app.route("/editar_articulo/<int:id>")
 def editar_articulo(id):
-    articulo = basedatos.obtener_articulo(id)
-    return render_template("editar_articulo.html", articulo=articulo)
+    try:
+        articulo = basedatos.obtener_articulo(id)
+    except Exception as e:
+        print(f"Ha ocurrido el error {e}")
+    finally:
+        return render_template("editar_articulo.html", articulo=articulo)
 
 
 @ app.route("/actualizar_articulo", methods=['POST'])
@@ -41,8 +58,12 @@ def actualizar_articulo():
     id = request.form["id"]
     nombre = request.form["nombre"]
     precio = request.form["precio"]
-    basedatos.actualizar_articulo(id, nombre, precio)
-    return redirect("/articulos")
+    try:
+        basedatos.actualizar_articulo(id, nombre, precio)
+    except Exception as e:
+        print(f"Ha ocurrido el error {e}")
+    finally:
+        return redirect("/articulos")
 
 
 if __name__ == '__main__':

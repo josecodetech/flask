@@ -2,6 +2,7 @@ import pymysql
 
 
 def dame_conexion():
+
     return pymysql.connect(
         host='localhost',
         user='root',
@@ -10,6 +11,7 @@ def dame_conexion():
 
 
 def insertar_articulo(nombre, precio):
+
     conexion = dame_conexion()
     with conexion.cursor() as cursor:
         cursor.execute(
